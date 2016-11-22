@@ -10,6 +10,8 @@ import {
 } from 'react-native'
 import Swiper from 'react-native-swiper'
 const { width, height } = Dimensions.get('window')
+import RegistPage from './regist/RegistPage'
+import LoginPage from './login/LoginPage'
 
 class AppGuide extends Component {
   render () {
@@ -36,7 +38,12 @@ class AppGuide extends Component {
       </View>
       <View style={styles.bottomView}>
           <TouchableOpacity
-              onPress= {() => {alert('jiaru')}}
+              onPress= {() => {
+                  this.props.navigator.push({
+                      component: RegistPage,
+                      title: '手机号注册'
+                  })
+              }}
               style={styles.registTouchable}>
               <Text
                   style={styles.registText}>
@@ -44,7 +51,12 @@ class AppGuide extends Component {
               </Text>
           </TouchableOpacity>
           <TouchableOpacity
-              onPress= {() => {alert('denglu')}}
+              onPress= {() => {
+                  this.props.navigator.push({
+                      component: LoginPage,
+                      title: '登录'
+                  })
+              }}
               style={styles.loginTouchable}>
               <Text
                   style={styles.loginText}>
@@ -57,7 +69,7 @@ class AppGuide extends Component {
   }
 }
 
-const styles = {
+var styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
@@ -126,6 +138,6 @@ const styles = {
         marginTop: 7,
         color: '#e89026'
     },
-}
+})
 
 module.exports = AppGuide;
