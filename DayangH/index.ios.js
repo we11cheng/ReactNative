@@ -6,7 +6,7 @@
 
 import React, { Component } from 'react'
 import AppGuide from './src/components/AppGuide'
-import Swiper from './src/components/Swiper'
+import Swiper from './src/components/AppGuide'
 import {
   AppRegistry,
   StyleSheet,

@@ -147,5 +147,4 @@ class SwiperPage extends Component {
       </View>
     )
   }
-}
-module.exports = SwiperPage;
+} module.exports = SwiperPage;
