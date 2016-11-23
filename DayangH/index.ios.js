@@ -9,6 +9,7 @@ import AppGuide from './src/components/AppGuide'
 import Swiper from './src/components/AppGuide'
 import ReportPage from './src/components/reportPage/ReportPage'
 import TabBar from './src/components/TabBar'
+import Welcome from './src/components/Welcome'
 import {
   AppRegistry,
   StyleSheet,
@@ -21,7 +22,7 @@ export default class DayangH extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLogined: true
+            isLogined: false
         }
     }
     render() {
@@ -47,6 +48,7 @@ export default class DayangH extends Component {
                 <TabBar />
             )
         } else {
+            /*
             return (
                 <NavigatorIOS
                     initialRoute={{
@@ -61,6 +63,10 @@ export default class DayangH extends Component {
                     translucent={false}
                     style={styles.container}
                 />
+            )
+            */
+            return (
+                <Welcome />
             )
         }
   }

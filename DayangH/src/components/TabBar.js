@@ -17,7 +17,7 @@ class TabBar extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            selectedTab: 'report',
+            selectedTab: 'state',
         }
     }
     render() {
