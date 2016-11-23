@@ -12,7 +12,7 @@ import {baseUrl} from '../../constants/Api'
 
 class LoginPage extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             userNameText: 'g1234',
             passWordText: '123456'
