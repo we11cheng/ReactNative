@@ -24,7 +24,12 @@ export default class DayangH extends Component {
           title: '',
           navigationBarHidden: true
         }}
-        style={{flex: 1}}
+        barTintColor='#09a6c1'
+        titleTextColor='white'
+        interactivePopGestureEnabled={true}
+        shadowHidden={true}
+        translucent={false}
+        style={styles.container}
       />
     )
   }
@@ -33,19 +38,6 @@ export default class DayangH extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
   },
 });
 

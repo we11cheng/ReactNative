@@ -115,8 +115,8 @@ var styles = StyleSheet.create({
         marginTop: 20,
         alignItems: 'center',
         height: 36,
-        marginLeft: 10,
-        marginRight: 10,
+        marginLeft: 130,
+        marginRight: 130,
         //backgroundColor:'#09a6c1',
         borderRadius: 3
     },
