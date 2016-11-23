@@ -5,15 +5,40 @@ import {
     StyleSheet,
     Image,
     TextInput,
+    Button,
 } from 'react-native'
+import md5 from "react-native-md5"
+import {baseUrl} from '../../constants/Api'
 
 class LoginPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            userNameText: '',
-            passWordText: ''
+            userNameText: 'g1234',
+            passWordText: '123456'
         }
+    }
+    handleClick = () => {
+        var requestUrl = `${baseUrl}sessions`
+        var passMd5 = md5.hex_md5(String(this.state.passWordText));
+        var body = {"name": this.state.userNameText,"password":passMd5};
+        //alert(JSON.stringify(body))
+        fetch(requestUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(body),
+        })
+        .then((response) => response.json())
+        .then((responseData) => {
+            //console.info("recivedata",responseData);
+            alert(JSON.stringify(responseData))
+        })
+        .catch((error) => {
+            //console.info("reciveerror",error);
+            alert(error)
+        });
     }
     render() {
         return(
@@ -31,6 +56,7 @@ class LoginPage extends Component {
                                     userNameText:text
                                 })
                             }}
+                            value={this.state.userNameText}
                         />
                     </View>
                     <View style={styles.separateView}>
@@ -41,14 +67,35 @@ class LoginPage extends Component {
                         <TextInput style={styles.textInput}
                             placeholder='请输入密码'
                             keyboardType='email-address'
+                            secureTextEntry={true}
                             returnKeyType='done'
                             onChangeText={(text) => {
                                 this.setState({
                                     passWordText:text
                                 })
                             }}
+                            value={this.state.passWordText}
                         />
                     </View>
+                </View>
+                <View style={styles.loginView}>
+                    <Button style={styles.loginButton}
+                        title='登录'
+                        color='white'
+                        onPress={(e) => {
+                            //alert('denglu')
+                            if(this.state.userNameText.length ===0) {
+                                alert('请输入用户名')
+                                return;
+                            }
+                            if(this.state.passWordText.length ===0) {
+                                alert('请输入密码')
+                                return;
+                            }
+                            //alert('========')
+                            this.handleClick()
+                        }}
+                    />
                 </View>
             </View>
         )
@@ -107,7 +154,25 @@ var styles = StyleSheet.create({
         marginRight: 20,
         //borderColor: 'gray', 
         //borderWidth: 1
+    },
+    loginView: {
+        height: 45,
+        marginTop: 20,
+        marginLeft: 20,
+        marginRight: 20,
+        borderColor: 'white',
+        borderWidth: 1,
+        borderRadius: 3,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        //backgroundColor: 'red'
+    },
+    loginButton: {
+        flex:1,
+        backgroundColor: 'red'
     }
+
 
 }) 
 

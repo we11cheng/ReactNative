@@ -16,22 +16,32 @@ import {
 } from 'react-native'
 
 export default class DayangH extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLogined: false
+        }
+    }
     render() {
-    return (
-      <NavigatorIOS
-        initialRoute={{
-          component: Swiper,
-          title: '',
-          navigationBarHidden: true
-        }}
-        barTintColor='#09a6c1'
-        titleTextColor='white'
-        interactivePopGestureEnabled={true}
-        shadowHidden={true}
-        translucent={false}
-        style={styles.container}
-      />
-    )
+        if(this.state.isLogined) {
+
+        } else {
+            return (
+                <NavigatorIOS
+                    initialRoute={{
+                        component: Swiper,
+                        title: '',
+                        navigationBarHidden: true
+                    }}
+                    barTintColor='#09a6c1'
+                    titleTextColor='white'
+                    interactivePopGestureEnabled={true}
+                    shadowHidden={true}
+                    translucent={false}
+                    style={styles.container}
+                />
+            )
+        }
   }
 }
 
