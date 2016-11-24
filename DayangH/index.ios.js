@@ -24,8 +24,10 @@ import root from './src/components/reducers/LoginReduc'
 import LoginAction from './src/components/actions/LoginAction'
 import createLogger from 'redux-logger'
 import thunk from 'redux-thunk'
+import App from './src/components/App'
 
 const store = createStore(root)
+console.info("最先创建的store==========",store.getState())
  //alert(JSON.stringify(store))
  //alert(root)
  //const logger = createLogger()
@@ -33,25 +35,29 @@ const store = createStore(root)
  //const store = createStoreWithMiddleware(root)
 //alert(JSON.stringify(store)) 
 //alert(store)
-
+    /*
 class DayangH extends Component {
     constructor(props) {
         super(props)
     }
     render() {
-        alert(JSON.stringify(store))
+        console.info("最先创建的store==========",store.getState())
             return (
+                <Provider store={store}>
                 <TabBar />
+                </Provider>
             )
         }
 }
+*/
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//   },
+// });
 
+/*
 const mapStateToProps = (state) => ({
     DayangState: state
 })
@@ -62,10 +68,18 @@ const mapDispatchToProps = (dispatch) => ({
     }
 })
 
-/*
  var ContainerDayangH = connect (
      mapStateToProps,
      mapDispatchToProps
  )(DayangH)
  */
-AppRegistry.registerComponent('DayangH', () => DayangH);
+ 
+const main = () => {
+    return (
+        <Provider store={store}>
+            <App />
+        </Provider>
+    )
+}
+
+AppRegistry.registerComponent('DayangH', main);
