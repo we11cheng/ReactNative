@@ -17,12 +17,22 @@ import {
   NavigatorIOS,
   View
 } from 'react-native'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import { connect } from 'react-redux'
+import reducer from './src/components/reducers/Rootreduc'
+import LoginAction from './src/components/actions/LoginAction'
+    
+ const store = createStore(reducer)
+ alert(JSON.stringify(store))
+ alert(reducer)
+ 
 
-export default class DayangH extends Component {
+class DayangH extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLogined: false
+            isLogined: true
         }
     }
     render() {
@@ -45,7 +55,7 @@ export default class DayangH extends Component {
                 )
                 */
             return (
-                <TabBar />
+                    <TabBar />
             )
         } else {
             /*
@@ -66,6 +76,11 @@ export default class DayangH extends Component {
             )
             */
             return (
+                /*
+                <Provider store={this.state.store}>
+                    <Welcome />
+                </Provider>
+                */
                 <Welcome />
             )
         }
@@ -78,4 +93,20 @@ const styles = StyleSheet.create({
   },
 });
 
+const mapStateToProps = (state) => ({
+    DayangState: state
+})
+
+const mapDispatchToProps = (dispatch) => ({
+    DayangDispath:() => {
+        dispatch(LoginAction())
+    }
+})
+
+/*
+ var ContainerDayangH = connect (
+     mapStateToProps,
+     mapDispatchToProps
+ )(DayangH)
+ */
 AppRegistry.registerComponent('DayangH', () => DayangH);
