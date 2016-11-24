@@ -1,1 +1,1 @@
-export const Logined = 'LOGINED'
+export const logined = 'LOGINED'

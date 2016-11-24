@@ -10,15 +10,15 @@ const initialState = {
         "type":""
             }
 }
-const login = (state=initialState,action) => {
-    switch(action.type) {
-        case logined: 
-            return {
-            isLogined:true
-        } 
+const root = (state=initialState,action) => {
+    switch(action.type){
+        case logined:
+            return Object.assign({},state,{isLogined:true})
+        
     default:
         return state
     }
 }
 
-module.exports = login;
+module.exports = root;
+

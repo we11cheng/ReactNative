@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 import LoginReduc from './LoginReduc'
 
 const rootReducer = combineReducers ({
-    LoginReduc:LoginReduc
+    LoginReduc
 })
 
 module.exports = rootReducer;

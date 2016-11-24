@@ -17,74 +17,33 @@ import {
   NavigatorIOS,
   View
 } from 'react-native'
-import { createStore } from 'redux'
+import { applyMiddleware, createStore } from 'redux'
 import { Provider } from 'react-redux'
 import { connect } from 'react-redux'
-import reducer from './src/components/reducers/Rootreduc'
+import root from './src/components/reducers/LoginReduc'
 import LoginAction from './src/components/actions/LoginAction'
-    
- const store = createStore(reducer)
- alert(JSON.stringify(store))
- alert(reducer)
- 
+import createLogger from 'redux-logger'
+import thunk from 'redux-thunk'
+
+const store = createStore(root)
+ //alert(JSON.stringify(store))
+ //alert(root)
+ //const logger = createLogger()
+ //const createStoreWithMiddleware = applyMiddleware(thunk, logger)(createStore)
+ //const store = createStoreWithMiddleware(root)
+//alert(JSON.stringify(store)) 
+//alert(store)
 
 class DayangH extends Component {
     constructor(props) {
-        super(props);
-        this.state = {
-            isLogined: true
-        }
+        super(props)
     }
     render() {
-        if(this.state.isLogined) {
-            /*
+        alert(JSON.stringify(store))
             return (
-                <NavigatorIOS
-                    initialRoute={{
-                        component: ReportPage,
-                        title: 'shouye',
-                        //navigationBarHidden: true
-                    }}
-                    barTintColor='#09a6c1'
-                    titleTextColor='white'
-                    interactivePopGestureEnabled={true}
-                    shadowHidden={true}
-                    translucent={false}
-                    style={styles.container}
-                />
-                )
-                */
-            return (
-                    <TabBar />
-            )
-        } else {
-            /*
-            return (
-                <NavigatorIOS
-                    initialRoute={{
-                        component: Swiper,
-                        title: '',
-                        navigationBarHidden: true
-                    }}
-                    barTintColor='#09a6c1'
-                    titleTextColor='white'
-                    interactivePopGestureEnabled={true}
-                    shadowHidden={true}
-                    translucent={false}
-                    style={styles.container}
-                />
-            )
-            */
-            return (
-                /*
-                <Provider store={this.state.store}>
-                    <Welcome />
-                </Provider>
-                */
-                <Welcome />
+                <TabBar />
             )
         }
-  }
 }
 
 const styles = StyleSheet.create({
