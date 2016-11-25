@@ -13,8 +13,9 @@ const initialState = {
 const root = (state=initialState,action) => {
     switch(action.type){
         case logined:
-            return Object.assign({},state,{isLogined:true})
-        
+            return {
+            isLogined: true
+        }
     default:
         return state
     }

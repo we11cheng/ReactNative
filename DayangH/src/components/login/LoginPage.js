@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import {
     View,
     Text,
@@ -9,6 +10,7 @@ import {
 } from 'react-native'
 import md5 from "react-native-md5"
 import {baseUrl} from '../../constants/Api'
+import {LoginAction} from '../actions/LoginAction'
 
 class LoginPage extends Component {
     constructor(props) {
@@ -32,8 +34,13 @@ class LoginPage extends Component {
         })
         .then((response) => response.json())
         .then((responseData) => {
-            //console.info("recivedata",responseData);
-            alert(JSON.stringify(responseData))
+            console.info("==recivedata==",responseData);
+            console.info('==this.pros.dispatch==',this.props.dispatch)
+            console.info('==LoginState==',this.props.LoginState)
+            var action = LoginAction()
+            console.info("==action==",action)
+            //alert(JSON.stringify(responseData))
+            this.props.dispatch(action)
         })
         .catch((error) => {
             //console.info("reciveerror",error);
@@ -175,5 +182,23 @@ var styles = StyleSheet.create({
 
 
 }) 
+/*
+const mapDispatchToProps = (dispatch) => ({
+    LoginDispatch:() => {
+        dispatch(LoginAction())
+    }
+})
 
-module.exports = LoginPage;
+const Container = connect(
+    mapDispatchToProps,
+)(LoginPage)
+*/
+const mapStateToProps = (state) => ({
+    LoginState:state
+})
+
+const Container = connect(
+    mapStateToProps,
+)(LoginPage)
+
+module.exports = Container;

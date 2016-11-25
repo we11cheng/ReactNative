@@ -16,26 +16,30 @@ class App extends Component {
     }
     render() {
         console.info('DayangState========',this.props.DayangState)
-        return (
-            <Text>
-                gwc
-            </Text>
-        )
+        if(this.props.DayangState.isLogined) {
+            return (
+                <TabBar />
+            )
+        } else {
+            return (
+                <Welcome />
+            )
+        }
     }
 }
 
 const mapStateToProps = (state) => ({
-    DayangState: state
+    DayangState: state.LoginReduc
 })
-
+/*
 const mapDispatchToProps = (dispatch) => ({
     DayangDispath:() => {
         dispatch(LoginAction())
     }
 })
-
+*/
 const Container = connect(
     mapStateToProps,
-    mapDispatchToProps
 )(App)
+
 module.exports = Container;
