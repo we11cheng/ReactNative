@@ -1,4 +1,5 @@
-import {logined,loginout} from '../constants/ActionType'
+//import {logined,loginout} from '../constants/ActionType'
+import * as types from '../constants/ActionType'
 
 /*
 export function LoginAction() {
@@ -13,9 +14,9 @@ export function LoginOut() {
 }
 */
 export const LoginAction = () => ({
-    type:logined
+    type:types.logined
 })
 
 export const LoginOut = () => ({
-    type: loginout
+    type: types.loginout
 })
