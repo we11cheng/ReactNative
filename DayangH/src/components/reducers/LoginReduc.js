@@ -10,6 +10,7 @@ const initialState = {
         "type":""
             }
 }
+    /*
 const root = (state=initialState,action) => {
     switch(action.type){
         case logined:
@@ -26,4 +27,20 @@ const root = (state=initialState,action) => {
 }
 
 module.exports = root;
+*/
+
+export default handelEvent =(state=initialState,action) => {
+    switch(action.type){
+        case logined:
+            return {
+            isLogined: true
+        };
+        case loginout:
+            return {
+            isLogined:false
+        }
+    default:
+        return state
+    }
+}
 
