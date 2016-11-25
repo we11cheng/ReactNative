@@ -37,10 +37,18 @@ class LoginPage extends Component {
             console.info("==recivedata==",responseData);
             console.info('==this.pros.dispatch==',this.props.dispatch)
             console.info('==LoginState==',this.props.LoginState)
-            var action = LoginAction()
-            console.info("==action==",action)
+            //var action = LoginAction()
+            //console.info("==action==",action)
             //alert(JSON.stringify(responseData))
-            this.props.dispatch(action)
+            /*
+            if(responseData.token) {
+                this.props.dispatch(LoginAction(responseData))
+            } else {
+                alert(JSON.stringify(responseData))
+            }
+            */
+            this.props.dispatch(LoginAction(responseData))
+
         })
         .catch((error) => {
             //console.info("reciveerror",error);

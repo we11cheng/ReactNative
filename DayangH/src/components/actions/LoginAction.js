@@ -13,8 +13,9 @@ export function LoginOut() {
     }
 }
 */
-export const LoginAction = () => ({
-    type:types.logined
+export const LoginAction = (response) => ({
+    type:types.logined,
+    response
 })
 
 export const LoginOut = () => ({

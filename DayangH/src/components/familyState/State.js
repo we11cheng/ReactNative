@@ -5,8 +5,11 @@ import {
     Text,
     StyleSheet,
     TouchableOpacity,
+    NavigatorIOS,
 } from 'react-native'
 import {LoginOut} from '../actions/LoginAction'
+import Body from './Body'
+import AddUserPage from './AddUser'
 
 class StatePage extends Component {
     constructor(props) {
@@ -14,25 +17,23 @@ class StatePage extends Component {
     }
     render() {
         return(
-            <View style={styles.container}>
-          <TouchableOpacity
-              onPress= {() => {
-                  /*
-                  this.props.navigator.push({
-                      component: RegistPage,
-                      title: '手机号注册'
-                  })
-                  */
-                  this.props.dispatch(LoginOut())
-              }}
-              style={styles.registTouchable}>
-              <Text
-                  style={styles.registText}>
-                  退出登录
-              </Text>
-          </TouchableOpacity>
-
-            </View>
+            <NavigatorIOS  
+                ref='nav'
+                barTintColor='#09a6c1'
+                titleTextColor='white'
+                style={styles.container}
+                rightButtonIcon={require('../../resources/addUser@2x.png')}
+                initialRoute={{
+                    component: Body,
+                    title: '亲人状态',
+                }}
+                onRightButtonPress={() => {
+                    this.refs.nav.push({
+                        component: AddUserPage,
+                        title: '创建'
+                    });
+                }}
+            />
         )
     }
 }
@@ -44,27 +45,14 @@ var styles = StyleSheet.create({
         justifyContent: 'flex-start',
         backgroundColor: 'white'
     },
-    registTouchable: {
-        marginTop: 140,
-        alignItems: 'center',
-        height: 36,
-        marginLeft: 10,
-        marginRight: 10,
-        backgroundColor: '#09a6c1',
-        borderRadius: 3
-    },
-    registText: {
-        fontSize: 20,
-        justifyContent: 'center',
-        alignItems: 'center',
-        textAlign: 'center',
-        marginTop: 7,
-        color: 'white'
-    },
+    text: {
+        marginTop: 64,
+        color: 'red'
+    }
 }) 
 
 const mapStateToProps = (state) => ({
-    DayangState: state
+    DayangState: state.LoginReduc
 })
 const Container = connect(
     mapStateToProps,

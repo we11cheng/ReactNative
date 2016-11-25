@@ -33,7 +33,8 @@ export default handelEvent =(state=initialState,action) => {
     switch(action.type){
         case logined:
             return {
-            isLogined: true
+            isLogined: true,
+            response: action.response
         };
         case loginout:
             return {

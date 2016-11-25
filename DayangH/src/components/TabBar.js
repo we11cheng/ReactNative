@@ -54,15 +54,7 @@ class TabBar extends Component {
                             selectedTab: 'state',
                         });
                     }}>
-                    <NavigatorIOS
-                        barTintColor='#09a6c1'
-                        titleTextColor='white'
-                        style={styles.navigator}
-                        initialRoute={{
-                            component: StatePage,
-                            passProps: {},
-                            title: '亲人状态',
-                        }}/>
+                    <StatePage /> 
                 </TabBarIOS.Item>
                 <TabBarIOS.Item
                     title='设备设置'
