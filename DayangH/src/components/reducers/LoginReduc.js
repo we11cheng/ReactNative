@@ -1,4 +1,4 @@
-import {logined} from '../constants/ActionType'
+import {logined,loginout} from '../constants/ActionType'
 
 const initialState = {
     nameText:"",
@@ -15,6 +15,10 @@ const root = (state=initialState,action) => {
         case logined:
             return {
             isLogined: true
+        };
+        case loginout:
+            return {
+            isLogined:false
         }
     default:
         return state
