@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import {
     View,
     Text,
@@ -7,17 +8,17 @@ import {
     NavigatorIOS,
     Image,
 } from 'react-native'
+import UserListCell from './UserListCell'
 
 class Body extends Component {
     render() {
         return(
             <View style={styles.container}>
-                <Image style={styles.image}
-                    source={require('../../resources/addUser@2x.png')}
-                />
                 <Text style={styles.text}>
-                    hhhhhhhhhhh
+                    {this.props.DayangState.response.token}
                 </Text>
+                <UserListCell userName="hhh">
+                </UserListCell>
             </View>
         )
     }
@@ -28,14 +29,22 @@ var styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'flex-start',
-        backgroundColor: 'gray'
+        backgroundColor: 'white'
     },
     image: {
         marginTop: 64,
     },
     text: {
+        marginTop: 64,
         color: 'red'
     }
 })
 
-module.exports = Body;
+const mapStateToProps = (state) => ({
+    DayangState: state.LoginReduc
+})
+const Container = connect(
+    mapStateToProps,
+)(Body)
+
+module.exports = Container;

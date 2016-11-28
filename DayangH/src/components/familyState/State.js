@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import {
     View,
     Text,
@@ -51,12 +50,5 @@ var styles = StyleSheet.create({
     }
 }) 
 
-const mapStateToProps = (state) => ({
-    DayangState: state.LoginReduc
-})
-const Container = connect(
-    mapStateToProps,
-)(StatePage)
-
-module.exports = Container;
+module.exports = StatePage;
 
