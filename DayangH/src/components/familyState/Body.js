@@ -78,16 +78,15 @@ class MyComponent extends Component {
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.state = {
             users:[],
-            dataSource: ds.cloneWithRows(['row 1', 'row 2','row3','row4']),
+            dataSource: new ListView.DataSource({
+                rowHasChanged: (row1, row2) => row1 !== row2,
+            })
         };
+        this.getDataSource = this.getDataSource.bind(this)
     }
-    getDataSource() {
-        const userArray = this.state.users
-        const empty = []
-        var dataSource = userArray.map(function(value){
-            empty.push()
-        })
-        return empty
+    getDataSource(array) {
+        console.info('---------------------------getDataSource')
+        return this.state.dataSource.cloneWithRows(array);
     }
     componentDidMount() {
         //console.info('==Body==',this.props.DayangState)
@@ -107,7 +106,8 @@ class MyComponent extends Component {
         .then((responseData) => {
             console.info("==recivedata==",responseData);
             this.setState({
-                users: responseData.users
+                users: responseData.users,
+                dataSource: this.getDataSource(responseData.users)
             })
         })
         .catch((error) => {
@@ -116,12 +116,14 @@ class MyComponent extends Component {
     }
 
     render() {
+        console.info('===============dataSource',this.state.dataSource)
+        console.info('===============dataSource',this.state.users)
         return (
             <ListView
                 dataSource={this.state.dataSource}
                 renderRow={(rowData) => 
                     <View style={styles.userList}>
-                    <UserListCell userName={rowData} 
+                    <UserListCell userName={rowData.name}  
                     />
                     </View>
                     }
@@ -145,7 +147,7 @@ var styles = StyleSheet.create({
         color: 'red'
     },
     userList: {
-        marginBottom: 20
+        //marginBottom: 20
     }
 })
 
