@@ -11,6 +11,7 @@ import {
     ListView,
 } from 'react-native'
 import UserListCell from './UserListCell'
+import EditUserPage from './EditUser'
 
 class Body extends Component {
     constructor(props) {
@@ -124,6 +125,14 @@ class MyComponent extends Component {
                 renderRow={(rowData) => 
                     <View style={styles.userList}>
                     <UserListCell userName={rowData.name}  
+                        gotoEdit={() => {
+                            //alert('edit')
+                            this.props.navigator.push({
+                                component: EditUserPage,
+                                title: '个人信息',
+                                passProps: {rowData}
+                            })
+                        }}
                     />
                     </View>
                     }

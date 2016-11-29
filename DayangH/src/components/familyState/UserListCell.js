@@ -6,6 +6,7 @@ import {
     TouchableOpacity,
     NavigatorIOS,
     Image,
+    TouchableHighlight,
 } from 'react-native'
 
 class UserListCell extends Component {
@@ -19,9 +20,11 @@ class UserListCell extends Component {
                     <Text style={styles.userNameText}>
                         {this.props.userName}
                     </Text>
-                    <Image style={styles.editImage}
-                        source={require('../../resources/familyState/userEdit@2x.png')}
-                    />
+                    <TouchableOpacity style={styles.highlight} onPress={this.props.gotoEdit}>
+                        <Image style={styles.editImage}
+                            source={require('../../resources/familyState/userEdit@2x.png')}
+                        />
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.centerView}>
                     <Text style={styles.centerText}>
@@ -116,6 +119,10 @@ var styles = StyleSheet.create({
         width: 22,
         height: 22,
         //flex: 1
+    },
+    highlight: {
+        //backgroundColor: 'red'
+        //underlayColor: 'gray'
     }
 })
 
