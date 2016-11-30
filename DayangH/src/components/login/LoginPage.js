@@ -40,14 +40,12 @@ class LoginPage extends Component {
             //var action = LoginAction()
             //console.info("==action==",action)
             //alert(JSON.stringify(responseData))
-            /*
             if(responseData.token) {
                 this.props.dispatch(LoginAction(responseData))
             } else {
                 alert(JSON.stringify(responseData))
             }
-            */
-            this.props.dispatch(LoginAction(responseData))
+            //this.props.dispatch(LoginAction(responseData))
 
         })
         .catch((error) => {
