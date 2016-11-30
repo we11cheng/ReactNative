@@ -7,18 +7,31 @@ import {
     Image,
     TextInput,
     Button,
+    Modal,
+    TouchableOpacity,
 } from 'react-native'
 import md5 from "react-native-md5"
+//import uuid from 'node-uuid'
 import {baseUrl} from '../../constants/Api'
 import {LoginAction} from '../actions/LoginAction'
+
+//const uuidStr = uuid.v4()
 
 class LoginPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
             userNameText: 'g1234',
-            passWordText: '123456'
+            passWordText: '123456',
+            modalVisible: false
         }
+        //this.getImgCode = this.getImgCode.bind(this)
+    }
+    componentDidMount() {
+    }
+    getImageCode() {
+        var requestUrl = `${baseUrl}guardians/imgCode`
+        alert(uuidStr)
     }
     handleClick = () => {
         var requestUrl = `${baseUrl}sessions`
@@ -43,10 +56,14 @@ class LoginPage extends Component {
             if(responseData.token) {
                 this.props.dispatch(LoginAction(responseData))
             } else {
-                alert(JSON.stringify(responseData))
+                var message = String((JSON.stringify(responseData.error)))
+                if(message = 'ATTEMPT_TOO_MANY_TIMES') {
+                    //this.getImgCode()
+                    this.setState({
+                        modalVisible: true
+                    })
+                }
             }
-            //this.props.dispatch(LoginAction(responseData))
-
         })
         .catch((error) => {
             //console.info("reciveerror",error);
@@ -56,6 +73,25 @@ class LoginPage extends Component {
     render() {
         return(
             <View style={styles.container}>
+                <Modal
+                    animationType={"slide"}
+                    transparent={false}
+                    visible={this.state.modalVisible} >
+                    <View style={styles.container}>
+                        <TouchableOpacity style={styles.navBack}
+                            onPress={() => {
+                                this.setState({
+                                    modalVisible: false
+                                })
+                            }} >
+                            <Image style={styles.navBackImage}
+                                source={require('../../resources/nav_back@2x.png')} />
+                        </TouchableOpacity>
+                        <Text style={styles.descText}>
+                            尝试次数过多,输入验证码再试
+                        </Text>
+                    </View>
+                </Modal>
                 <View style={styles.topView}>
                     <View style={styles.userNameView}>
                         <Image style={styles.usernameImage} 
@@ -184,6 +220,22 @@ var styles = StyleSheet.create({
     loginButton: {
         flex:1,
         backgroundColor: 'red'
+    },
+    navBack:{
+        marginTop: 44,
+        marginLeft: 10,
+        backgroundColor: 'red',
+        padding: 10,
+        width: 40,
+    },
+    navBackImage: {
+        width: 9,
+        height: 16,
+    },
+    descText: {
+        marginTop: 20,
+        textAlign: 'center',
+        fontSize: 20,
     }
 
 
