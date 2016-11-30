@@ -61,7 +61,7 @@ class MyComponent extends Component {
         })
         .catch((error) => {
             console.info("reciveerror",error);
-        });
+        })
     }
 
     render() {
