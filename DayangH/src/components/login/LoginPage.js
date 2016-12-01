@@ -11,10 +11,10 @@ import {
     TouchableOpacity,
 } from 'react-native'
 import md5 from "react-native-md5"
-//import uuid from 'node-uuid'
 var uuid = require('react-native-uuid');
 import {baseUrl} from '../../constants/Api'
 import {LoginAction} from '../actions/LoginAction'
+//import RNFetchBlob from 'react-native-fetch-blob'
 
 class LoginPage extends Component {
     constructor(props) {
@@ -30,30 +30,20 @@ class LoginPage extends Component {
     }
     getImgCode() {
         var requestUrl = `${baseUrl}imgCode`
-        //var tokenStr = `Bear ${this.props.LoginState.response.token}`
-        var tokenStr = `Bear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJib2R5Ijp7Imd1YXJkaWFuSWQiOiI1ODM1NDZjMDRiOGY3ODAwMDE0MzE3ZGIifSwiZXhwIjoxNDgwOTMxMjI5fQ.bfplHjWgg1pXgOZ_bW5z_1CnT29wo0qaz5wtTpJGksQ`
-        // alert(uuid.v4())
-        //alert(requestUrl)
-        //alert(tokenStr)
-        console.info('-----tokenStr',tokenStr)
         var body = {"verifyType": 'release_block_address',"uuid":uuid.v4()};
-        fetch(requestUrl, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": tokenStr
-            },
-            body: JSON.stringify(body),
+            /*
+        RNFetchBlob.fetch('POST', 'http://www.example.com/upload-form', {
+            'Content-Type' : 'multipart/form-data',
+        }, [
+            // element with property `filename` will be transformed into `file` in form data
+            { 'verifyType' : 'release_block_address'},
+            { 'uuid' : uuid.v4()}
+        ]).then((resp) => {
+            console.info('====resp',resp)
+        }).catch((err) => {
+            console.info('====err',err)
         })
-        .then((response) => response.blob())
-        .then((responseData) => {
-            console.info("==Imagedata==",responseData);
-            //alert(responseData)
-        })
-        .catch((error) => {
-            console.info("reciveerror",error);
-            //alert(error)
-        })
+        */
     }
     handleClick = () => {
         var requestUrl = `${baseUrl}sessions`
@@ -80,7 +70,7 @@ class LoginPage extends Component {
             } else {
                 var message = String((JSON.stringify(responseData.error)))
                 if(message = 'ATTEMPT_TOO_MANY_TIMES') {
-                    this.getImgCode()
+                    //this.getImgCode()
                     this.setState({
                         modalVisible: true
                     })

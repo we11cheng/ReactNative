@@ -10,6 +10,7 @@
     "node-uuid": "^1.4.7",
     "react": "15.3.2",
     "react-native": "0.37.0",
+    "react-native-fetch-blob": "^0.10.0",
     "react-native-md5": "^1.0.0",
     "react-native-pull-to-refresh": "^2.0.0",
     "react-native-swiper": "^1.5.4",
