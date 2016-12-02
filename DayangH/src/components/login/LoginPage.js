@@ -14,7 +14,7 @@ import md5 from "react-native-md5"
 var uuid = require('react-native-uuid');
 import {baseUrl} from '../../constants/Api'
 import {LoginAction} from '../actions/LoginAction'
-//import RNFetchBlob from 'react-native-fetch-blob'
+import RNFetchBlob from 'react-native-fetch-blob'
 
 class LoginPage extends Component {
     constructor(props) {
@@ -22,7 +22,9 @@ class LoginPage extends Component {
         this.state = {
             userNameText: 'g1234',
             passWordText: '123456',
-            modalVisible: false
+            modalVisible: false,
+            imgCode: 'default',
+            uuid: 'ef56defc-7cba-47c4-9aea-3c6c43e52567'
         }
         this.getImgCode = this.getImgCode.bind(this)
     }
@@ -30,7 +32,7 @@ class LoginPage extends Component {
     }
     getImgCode() {
         var requestUrl = `${baseUrl}imgCode`
-        var body = {"verifyType": 'release_block_address',"uuid":uuid.v4()};
+        var body = {"verifyType": 'release_block_address',"uuid":this.state.uuid};
             /*
         RNFetchBlob.fetch('POST', 'http://www.example.com/upload-form', {
             'Content-Type' : 'multipart/form-data',
@@ -42,8 +44,34 @@ class LoginPage extends Component {
             console.info('====resp',resp)
         }).catch((err) => {
             console.info('====err',err)
+            alert(err)
         })
         */
+        RNFetchBlob.fetch('POST', requestUrl, {
+            // more headers  .. 
+            'Content-Type' : 'application/json',
+        },
+        JSON.stringify(body)
+        )
+            .then((res) => {
+                // the conversion is done in native code 
+                //let base64Str = res.blob()
+                let base64Str = res.data
+                //alert(base64Str)
+                // the following conversions are done in js, it's SYNC 
+                if(base64Str) {
+                    this.setState({
+                        imgCode: 'data:image/png;base64,'+ base64Str
+                    })
+                }
+                //alert(base64Str)
+            
+
+            })
+            // Status code is not 200 
+                .catch((errorMessage, statusCode) => {
+                    // error handling 
+                })
     }
     handleClick = () => {
         var requestUrl = `${baseUrl}sessions`
@@ -70,7 +98,7 @@ class LoginPage extends Component {
             } else {
                 var message = String((JSON.stringify(responseData.error)))
                 if(message = 'ATTEMPT_TOO_MANY_TIMES') {
-                    //this.getImgCode()
+                    this.getImgCode()
                     this.setState({
                         modalVisible: true
                     })
@@ -83,6 +111,7 @@ class LoginPage extends Component {
         });
     }
     render() {
+        //alert(this.state.imgCode)
         return(
             <View style={styles.container}>
                 <Modal
@@ -102,6 +131,13 @@ class LoginPage extends Component {
                         <Text style={styles.descText}>
                             尝试次数过多,输入验证码再试
                         </Text>
+                        <TouchableOpacity style={styles.codeImgView}
+                            onPress={() => {
+                                this.getImgCode()
+                            }}>
+                            <Image style={styles.codeImg} source={{uri:this.state.imgCode}} 
+                                />
+                            </TouchableOpacity>
                     </View>
                 </Modal>
                 <View style={styles.topView}>
@@ -248,6 +284,12 @@ var styles = StyleSheet.create({
         marginTop: 20,
         textAlign: 'center',
         fontSize: 20,
+    },
+    codeImg: {
+        marginTop: 20,
+        marginLeft: 20,
+        marginRight: 20,
+        height: 100
     }
 
 
