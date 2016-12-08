@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { NativeModules } from 'react-native'
 import {
     View,
     Text,
@@ -7,8 +8,12 @@ import {
     NavigatorIOS,
 } from 'react-native'
 
+var CalendarManager = NativeModules.CalendarManager
+
 class AddUserPage extends Component {
     render() {
+        CalendarManager.addEvent('guanweicheng','19920920')
+        //console.info('==CalendarManager==',CalendarManager)
         return (
             <View style={styles.container}>
             </View>
