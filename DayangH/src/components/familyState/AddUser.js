@@ -13,6 +13,14 @@ var CalendarManager = NativeModules.CalendarManager
 class AddUserPage extends Component {
     render() {
         CalendarManager.addEvent('guanweicheng','19920920')
+        CalendarManager.findEvents((error,event) => {
+            if(error) {
+                console.info('==error==',error)
+            } else {
+                console.info('==event==',event)
+            }
+        })
+        console.info('==常量==',CalendarManager.female)
         //console.info('==CalendarManager==',CalendarManager)
         return (
             <View style={styles.container}>
