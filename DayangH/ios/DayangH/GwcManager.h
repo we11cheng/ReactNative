@@ -1,5 +1,5 @@
 //
-//  RCTMapManager.h
+//  GwcManager.h
 //  DayangH
 //
 //  Created by apple on 08/12/2016.
@@ -8,6 +8,6 @@
 
 #import "RCTViewManager.h"
 
-@interface RCTGWCMapManager : RCTViewManager
+@interface GwcManager : RCTViewManager
 
 @end

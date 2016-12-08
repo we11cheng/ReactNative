@@ -1,3 +1,20 @@
+import React, { Component } from 'react'
 import { requireNativeComponent } from 'react-native';
 
-module.exports = requireNativeComponent('RCTGWCMap', null);
+
+
+class MyMapView extends React.Component {
+    render() {
+        return(
+            <RCTGWCMap {...this.props} />
+        )
+    }
+}
+MyMapView.propTypes = {
+    pitchEnabled: React.PropTypes.bool,
+    zoomEnabled: React.PropTypes.bool
+}
+
+var RCTGWCMap = requireNativeComponent('Gwc',MyMapView)
+
+module.exports = MyMapView

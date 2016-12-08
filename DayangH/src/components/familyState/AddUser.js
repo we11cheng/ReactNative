@@ -26,7 +26,7 @@ class AddUserPage extends Component {
         //console.info('==CalendarManager==',CalendarManager)
         return (
             <View style={styles.container}>
-                <MapView style={styles.mapViewStyle} />
+                <MapView pitchEnabled={true} zoomEnabled={false} style={styles.mapViewStyle} />
             </View>
         )
     }
