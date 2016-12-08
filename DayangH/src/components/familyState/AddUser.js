@@ -9,6 +9,7 @@ import {
 } from 'react-native'
 
 var CalendarManager = NativeModules.CalendarManager
+import MapView from './MapView'
 
 class AddUserPage extends Component {
     render() {
@@ -21,9 +22,11 @@ class AddUserPage extends Component {
             }
         })
         console.info('==常量==',CalendarManager.female)
+        console.info('==MapView==',MapView)
         //console.info('==CalendarManager==',CalendarManager)
         return (
             <View style={styles.container}>
+                <MapView style={styles.mapViewStyle} />
             </View>
         )
     }
@@ -34,8 +37,15 @@ var styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'flex-start',
-        backgroundColor: 'white'
+        backgroundColor: 'yellow'
     },
+    mapViewStyle: {
+        marginTop: 100,
+        marginLeft: 10,
+        marginRight: 10,
+        height: 200,
+        backgroundColor: 'red'
+    }
 })
 
 module.exports = AddUserPage;
