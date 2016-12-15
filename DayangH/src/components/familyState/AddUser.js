@@ -11,6 +11,7 @@ import {
 var CalendarManager = NativeModules.CalendarManager
 import MapView from './MapView'
 import GwcScanView from './GwcScan' 
+import NativeScan from './NativeScan'
 class AddUserPage extends Component {
     render() {
         CalendarManager.addEvent('guanweicheng','19920920')
@@ -22,12 +23,13 @@ class AddUserPage extends Component {
             }
         })
         console.info('==常量==',CalendarManager.female)
-        console.info('==GwcScanView==',GwcScanView)
+        console.info('==NativeScan==',NativeScan)
         console.info('==MapView==',MapView)
         //console.info('==CalendarManager==',CalendarManager)
         return (
             <View style={styles.container}>
                 <MapView pitchEnabled={true} zoomEnabled={false} style={styles.mapViewStyle} />
+                <NativeScan style={styles.gwc} />
             </View>
         )
     }
@@ -50,7 +52,7 @@ var styles = StyleSheet.create({
     gwc: {
         width: 200,
         height: 200,
-        backgroundColor: 'red'
+        //backgroundColor: 'red'
     }
 })
 
