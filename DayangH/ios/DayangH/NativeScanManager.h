@@ -9,5 +9,4 @@
 #import "RCTViewManager.h"
 
 @interface NativeScanManager : RCTViewManager
-
 @end

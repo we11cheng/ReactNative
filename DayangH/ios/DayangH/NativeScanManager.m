@@ -8,15 +8,18 @@
 
 #import "NativeScanManager.h"
 #import "ZBarReaderView.h"
+#import "RCTBridge.h" 
+#import "RCTEventEmitter.h"
 
 #define kMainScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kMainScreenHeight [UIScreen mainScreen].bounds.size.height
 
-@interface NativeScanManager ()<ZBarReaderViewDelegate> {
+@interface NativeScanManager ()<ZBarReaderViewDelegate,RCTBridgeModule,RCTBridgeDelegate> {
   NSString *_resultCodeString;
 }
 
 @property(nonatomic, retain)ZBarReaderView *readerView;
+@property(nonatomic, retain)RCTEventEmitter *emitter;
 
 @end
 
@@ -40,6 +43,14 @@ RCT_EXPORT_MODULE()
   return _readerView;
 }
 
+- (RCTEventEmitter *)emitter {
+  if (_emitter == nil) {
+    _emitter = [[RCTEventEmitter alloc] init];
+    _emitter.bridge =[[RCTBridge alloc] initWithDelegate:self launchOptions:nil];
+  }
+  return _emitter;
+}
+
 #pragma mark ZBarReaderViewDelegate delegateMethod
 - (void) readerView: (ZBarReaderView*) readerView
      didReadSymbols: (ZBarSymbolSet*) symbols
@@ -53,11 +64,14 @@ RCT_EXPORT_MODULE()
     if (scanString.length>0) {
       _resultCodeString = scanString;
       NSLog(@"----_resultCodeString----:%@",_resultCodeString);
-    }
-    break;
+      NSLog(@"//////////:%@",self.emitter);
+      [self.emitter sendEventWithName:@"codeback" body:@{@"code":_resultCodeString}];
+     }
   }
   [self.readerView stop];
   
 }
+
+
 
 @end

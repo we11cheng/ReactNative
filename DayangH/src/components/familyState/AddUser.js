@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { NativeAppEventEmitter } from 'react-native'
 import { NativeModules } from 'react-native'
 import {
     View,
@@ -14,17 +15,12 @@ import GwcScanView from './GwcScan'
 import NativeScan from './NativeScan'
 class AddUserPage extends Component {
     render() {
-        CalendarManager.addEvent('guanweicheng','19920920')
-        CalendarManager.findEvents((error,event) => {
-            if(error) {
-                console.info('==error==',error)
-            } else {
-                console.info('==event==',event)
-            }
-        })
         console.info('==常量==',CalendarManager.female)
         console.info('==NativeScan==',NativeScan)
         console.info('==MapView==',MapView)
+        var subscription = NativeAppEventEmitter.addListener( 'codeback', (code) => {
+                console.info('==codecodecode==',code)
+        });
         //console.info('==CalendarManager==',CalendarManager)
         return (
             <View style={styles.container}>
