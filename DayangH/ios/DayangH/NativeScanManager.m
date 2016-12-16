@@ -38,8 +38,9 @@ RCT_EXPORT_VIEW_PROPERTY(onChange, RCTBubblingEventBlock)
     _readerView.frame = CGRectMake(0.0f, 0.0f, kMainScreenWidth, kMainScreenHeight);
     _readerView.readerDelegate = self;
     _readerView.torchMode = 0;
-    [_readerView start];
+    
   }
+  [_readerView start];
   return _readerView;
 }
 
