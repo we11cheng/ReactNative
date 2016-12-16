@@ -18,14 +18,12 @@ class AddUserPage extends Component {
         console.info('==常量==',CalendarManager.female)
         console.info('==NativeScan==',NativeScan)
         console.info('==MapView==',MapView)
-        var subscription = NativeAppEventEmitter.addListener( 'codeback', (code) => {
-                console.info('==codecodecode==',code)
-        });
         //console.info('==CalendarManager==',CalendarManager)
         return (
             <View style={styles.container}>
                 <MapView pitchEnabled={true} zoomEnabled={false} style={styles.mapViewStyle} />
-                <NativeScan style={styles.gwc} />
+                <NativeScan style={styles.gwc}
+                />
             </View>
         )
     }
@@ -46,7 +44,8 @@ var styles = StyleSheet.create({
         backgroundColor: 'red'
     },
     gwc: {
-        width: 200,
+        marginLeft: 10,
+        marginRight: 10,
         height: 200,
         //backgroundColor: 'red'
     }

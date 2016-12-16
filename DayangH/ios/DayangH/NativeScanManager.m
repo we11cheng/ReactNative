@@ -14,19 +14,19 @@
 #define kMainScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kMainScreenHeight [UIScreen mainScreen].bounds.size.height
 
-@interface NativeScanManager ()<ZBarReaderViewDelegate,RCTBridgeModule,RCTBridgeDelegate> {
+@interface NativeScanManager ()<ZBarReaderViewDelegate,RCTBridgeModule> {
   NSString *_resultCodeString;
 }
 
 @property(nonatomic, retain)ZBarReaderView *readerView;
-@property(nonatomic, retain)RCTEventEmitter *emitter;
+
 
 @end
 
 @implementation NativeScanManager
 
 RCT_EXPORT_MODULE()
-
+RCT_EXPORT_VIEW_PROPERTY(onChange, RCTBubblingEventBlock)
 
 - (UIView *)view {
   return self.readerView;
@@ -43,13 +43,6 @@ RCT_EXPORT_MODULE()
   return _readerView;
 }
 
-- (RCTEventEmitter *)emitter {
-  if (_emitter == nil) {
-    _emitter = [[RCTEventEmitter alloc] init];
-    _emitter.bridge =[[RCTBridge alloc] initWithDelegate:self launchOptions:nil];
-  }
-  return _emitter;
-}
 
 #pragma mark ZBarReaderViewDelegate delegateMethod
 - (void) readerView: (ZBarReaderView*) readerView
@@ -64,8 +57,9 @@ RCT_EXPORT_MODULE()
     if (scanString.length>0) {
       _resultCodeString = scanString;
       NSLog(@"----_resultCodeString----:%@",_resultCodeString);
-      NSLog(@"//////////:%@",self.emitter);
-      [self.emitter sendEventWithName:@"codeback" body:@{@"code":_resultCodeString}];
+      if (self.onChange) {
+        self.onChange(@{@"code":_resultCodeString});
+      }
      }
   }
   [self.readerView stop];

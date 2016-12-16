@@ -9,4 +9,7 @@
 #import "RCTViewManager.h"
 
 @interface NativeScanManager : RCTViewManager
+
+@property (nonatomic, copy) RCTBubblingEventBlock onChange;
+
 @end
