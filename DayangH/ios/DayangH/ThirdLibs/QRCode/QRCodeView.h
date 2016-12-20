@@ -1,13 +1,14 @@
 //
-//  QRCodeManager.h
+//  QRCodeView.h
 //  DayangH
 //
 //  Created by apple on 20/12/2016.
 //  Copyright © 2016 Facebook. All rights reserved.
 //
 
-#import "RCTViewManager.h"
+#import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface QRCodeManager : RCTViewManager
+@interface QRCodeView : UIView
 
 @end
