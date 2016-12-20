@@ -23,6 +23,7 @@
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		187E1C091DF11B31004379B1 /* libRNFetchBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 187E1C081DF11B23004379B1 /* libRNFetchBlob.a */; };
+		188DA30D1E0924F40050CCA0 /* QRCodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 188DA30C1E0924F40050CCA0 /* QRCodeManager.m */; };
 		189108DD1E08DE17005026BE /* MyReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 189108DC1E08DE17005026BE /* MyReaderView.m */; };
 		18E0F3701DF9143F005F1B8E /* CalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E0F36F1DF9143F005F1B8E /* CalendarManager.m */; };
 		18E0F3B31DF95FB6005F1B8E /* GwcManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E0F3B21DF95FB6005F1B8E /* GwcManager.m */; };
@@ -196,6 +197,8 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = DayangH/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		187E1BF21DF11B23004379B1 /* RNFetchBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFetchBlob.xcodeproj; path = "../node_modules/react-native-fetch-blob/ios/RNFetchBlob.xcodeproj"; sourceTree = "<group>"; };
+		188DA30B1E0924F40050CCA0 /* QRCodeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeManager.h; sourceTree = "<group>"; };
+		188DA30C1E0924F40050CCA0 /* QRCodeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeManager.m; sourceTree = "<group>"; };
 		189108DB1E08DE17005026BE /* MyReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyReaderView.h; path = DayangH/MyReaderView.h; sourceTree = "<group>"; };
 		189108DC1E08DE17005026BE /* MyReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyReaderView.m; path = DayangH/MyReaderView.m; sourceTree = "<group>"; };
 		18E0F36E1DF9143F005F1B8E /* CalendarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarManager.h; path = DayangH/CalendarManager.h; sourceTree = "<group>"; };
@@ -391,9 +394,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		188DA30A1E0924BA0050CCA0 /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				188DA30B1E0924F40050CCA0 /* QRCodeManager.h */,
+				188DA30C1E0924F40050CCA0 /* QRCodeManager.m */,
+			);
+			path = QRCode;
+			sourceTree = "<group>";
+		};
 		18E0F4021E026909005F1B8E /* ThirdLibs */ = {
 			isa = PBXGroup;
 			children = (
+				188DA30A1E0924BA0050CCA0 /* QRCode */,
 				18E0F4031E026909005F1B8E /* ZBarSDKTT */,
 			);
 			name = ThirdLibs;
@@ -839,6 +852,7 @@
 				189108DD1E08DE17005026BE /* MyReaderView.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				188DA30D1E0924F40050CCA0 /* QRCodeManager.m in Sources */,
 				18E0F3E41DFFFFBA005F1B8E /* GwcScanManager.m in Sources */,
 				18E0F3701DF9143F005F1B8E /* CalendarManager.m in Sources */,
 				18E0F3B31DF95FB6005F1B8E /* GwcManager.m in Sources */,

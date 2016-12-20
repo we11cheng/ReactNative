@@ -13,6 +13,7 @@ var CalendarManager = NativeModules.CalendarManager
 import MapView from './MapView'
 import GwcScanView from './GwcScan' 
 import NativeScan from './NativeScan'
+import QRCode from './QRCode'
 class AddUserPage extends Component {
     render() {
         console.info('==常量==',CalendarManager.female)
@@ -22,7 +23,7 @@ class AddUserPage extends Component {
         return (
             <View style={styles.container}>
                 <MapView pitchEnabled={true} zoomEnabled={false} style={styles.mapViewStyle} />
-                <NativeScan style={styles.gwc}
+                <QRCode style={styles.gwc}
                 />
             </View>
         )
