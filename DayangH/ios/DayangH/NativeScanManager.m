@@ -10,6 +10,7 @@
 #import "ZBarReaderView.h"
 #import "RCTBridge.h" 
 #import "RCTEventEmitter.h"
+#import "MyReaderView.h"
 
 #define kMainScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kMainScreenHeight [UIScreen mainScreen].bounds.size.height
