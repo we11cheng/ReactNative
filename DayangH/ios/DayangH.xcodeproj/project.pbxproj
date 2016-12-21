@@ -202,6 +202,7 @@
 		188DA30C1E0924F40050CCA0 /* QRCodeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeManager.m; sourceTree = "<group>"; };
 		188DA30E1E09304B0050CCA0 /* QRCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeView.h; sourceTree = "<group>"; };
 		188DA30F1E09304B0050CCA0 /* QRCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeView.m; sourceTree = "<group>"; };
+		188DA3111E0A4FF60050CCA0 /* QRCodeViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeViewDelegate.h; sourceTree = "<group>"; };
 		189108DB1E08DE17005026BE /* MyReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyReaderView.h; path = DayangH/MyReaderView.h; sourceTree = "<group>"; };
 		189108DC1E08DE17005026BE /* MyReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyReaderView.m; path = DayangH/MyReaderView.m; sourceTree = "<group>"; };
 		18E0F36E1DF9143F005F1B8E /* CalendarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarManager.h; path = DayangH/CalendarManager.h; sourceTree = "<group>"; };
@@ -402,6 +403,7 @@
 			children = (
 				188DA30E1E09304B0050CCA0 /* QRCodeView.h */,
 				188DA30F1E09304B0050CCA0 /* QRCodeView.m */,
+				188DA3111E0A4FF60050CCA0 /* QRCodeViewDelegate.h */,
 				188DA30B1E0924F40050CCA0 /* QRCodeManager.h */,
 				188DA30C1E0924F40050CCA0 /* QRCodeManager.m */,
 			);

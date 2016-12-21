@@ -24,6 +24,9 @@ class AddUserPage extends Component {
             <View style={styles.container}>
                 <MapView pitchEnabled={true} zoomEnabled={false} style={styles.mapViewStyle} />
                 <QRCode style={styles.gwc}
+                  oncodeChange={(codeString) => {
+                    console.info('-------yes----',codeString)
+                  }}
                 />
             </View>
         )

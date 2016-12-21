@@ -77,11 +77,15 @@
     [_session stopRunning];
     AVMetadataMachineReadableCodeObject * metadataObject = [metadataObjects objectAtIndex:0];
     stringValue = metadataObject.stringValue;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(reciveQrcode:code:)]) {
+      [self.delegate reciveQrcode:self code:stringValue];
+    }
+    
   }
   
   NSLog(@" =============扫描二维码的结果%@",stringValue);
   
-  [_session startRunning];
+  //[_session startRunning];
 }
 
 @end
