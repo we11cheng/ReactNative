@@ -39,6 +39,14 @@
 		18E0F43E1E026AE0005F1B8E /* libiconv.2.4.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 18E0F43D1E026AE0005F1B8E /* libiconv.2.4.0.tbd */; };
 		18E0F4411E026E9B005F1B8E /* NativeScanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E0F4401E026E9B005F1B8E /* NativeScanManager.m */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		CC5F49BA1E6E98F400B0CF41 /* JBKenBurnsView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5F49B81E6E98F400B0CF41 /* JBKenBurnsView.m */; };
+		CC5F49BD1E6E9A2D00B0CF41 /* YCBgimgManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5F49BC1E6E9A2D00B0CF41 /* YCBgimgManager.m */; };
+		CC5F49C51E6E9B3900B0CF41 /* image0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CC5F49BF1E6E9B3900B0CF41 /* image0.jpg */; };
+		CC5F49C61E6E9B3900B0CF41 /* image1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CC5F49C01E6E9B3900B0CF41 /* image1.jpeg */; };
+		CC5F49C71E6E9B3900B0CF41 /* image2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CC5F49C11E6E9B3900B0CF41 /* image2.jpeg */; };
+		CC5F49C81E6E9B3900B0CF41 /* image3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = CC5F49C21E6E9B3900B0CF41 /* image3.jpeg */; };
+		CC5F49C91E6E9B3900B0CF41 /* image4.png in Resources */ = {isa = PBXBuildFile; fileRef = CC5F49C31E6E9B3900B0CF41 /* image4.png */; };
+		CC5F49CA1E6E9B3900B0CF41 /* image5.png in Resources */ = {isa = PBXBuildFile; fileRef = CC5F49C41E6E9B3900B0CF41 /* image5.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -243,6 +251,16 @@
 		18E0F4401E026E9B005F1B8E /* NativeScanManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NativeScanManager.m; path = DayangH/NativeScanManager.m; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		CC5F49B71E6E98F400B0CF41 /* JBKenBurnsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBKenBurnsView.h; sourceTree = "<group>"; };
+		CC5F49B81E6E98F400B0CF41 /* JBKenBurnsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBKenBurnsView.m; sourceTree = "<group>"; };
+		CC5F49BB1E6E9A2D00B0CF41 /* YCBgimgManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCBgimgManager.h; sourceTree = "<group>"; };
+		CC5F49BC1E6E9A2D00B0CF41 /* YCBgimgManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCBgimgManager.m; sourceTree = "<group>"; };
+		CC5F49BF1E6E9B3900B0CF41 /* image0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image0.jpg; sourceTree = "<group>"; };
+		CC5F49C01E6E9B3900B0CF41 /* image1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpeg; sourceTree = "<group>"; };
+		CC5F49C11E6E9B3900B0CF41 /* image2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image2.jpeg; sourceTree = "<group>"; };
+		CC5F49C21E6E9B3900B0CF41 /* image3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image3.jpeg; sourceTree = "<group>"; };
+		CC5F49C31E6E9B3900B0CF41 /* image4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image4.png; sourceTree = "<group>"; };
+		CC5F49C41E6E9B3900B0CF41 /* image5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image5.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -359,6 +377,7 @@
 		13B07FAE1A68108700A75B9A /* DayangH */ = {
 			isa = PBXGroup;
 			children = (
+				CC5F49A21E6E98B800B0CF41 /* NativeUI */,
 				18E0F4021E026909005F1B8E /* ThirdLibs */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -550,6 +569,40 @@
 				00E356EE1AD99517003FC87E /* DayangHTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		CC5F49A21E6E98B800B0CF41 /* NativeUI */ = {
+			isa = PBXGroup;
+			children = (
+				CC5F49B51E6E98F400B0CF41 /* KenBurns */,
+			);
+			name = NativeUI;
+			path = DayangH/NativeUI;
+			sourceTree = "<group>";
+		};
+		CC5F49B51E6E98F400B0CF41 /* KenBurns */ = {
+			isa = PBXGroup;
+			children = (
+				CC5F49BE1E6E9B3900B0CF41 /* images */,
+				CC5F49B71E6E98F400B0CF41 /* JBKenBurnsView.h */,
+				CC5F49B81E6E98F400B0CF41 /* JBKenBurnsView.m */,
+				CC5F49BB1E6E9A2D00B0CF41 /* YCBgimgManager.h */,
+				CC5F49BC1E6E9A2D00B0CF41 /* YCBgimgManager.m */,
+			);
+			path = KenBurns;
+			sourceTree = "<group>";
+		};
+		CC5F49BE1E6E9B3900B0CF41 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				CC5F49BF1E6E9B3900B0CF41 /* image0.jpg */,
+				CC5F49C01E6E9B3900B0CF41 /* image1.jpeg */,
+				CC5F49C11E6E9B3900B0CF41 /* image2.jpeg */,
+				CC5F49C21E6E9B3900B0CF41 /* image3.jpeg */,
+				CC5F49C31E6E9B3900B0CF41 /* image4.png */,
+				CC5F49C41E6E9B3900B0CF41 /* image5.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -816,11 +869,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				18E0F4241E026909005F1B8E /* zbar-helpicons.png in Resources */,
+				CC5F49C91E6E9B3900B0CF41 /* image4.png in Resources */,
+				CC5F49C51E6E9B3900B0CF41 /* image0.jpg in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				CC5F49C61E6E9B3900B0CF41 /* image1.jpeg in Resources */,
+				CC5F49CA1E6E9B3900B0CF41 /* image5.png in Resources */,
 				18E0F4251E026909005F1B8E /* zbar-samples.png in Resources */,
+				CC5F49C71E6E9B3900B0CF41 /* image2.jpeg in Resources */,
 				18E0F4221E026909005F1B8E /* zbar-back.png in Resources */,
 				18E0F4231E026909005F1B8E /* zbar-help.html in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				CC5F49C81E6E9B3900B0CF41 /* image3.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -858,8 +917,10 @@
 			files = (
 				189108DD1E08DE17005026BE /* MyReaderView.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				CC5F49BD1E6E9A2D00B0CF41 /* YCBgimgManager.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				188DA30D1E0924F40050CCA0 /* QRCodeManager.m in Sources */,
+				CC5F49BA1E6E98F400B0CF41 /* JBKenBurnsView.m in Sources */,
 				18E0F3E41DFFFFBA005F1B8E /* GwcScanManager.m in Sources */,
 				188DA3101E09304B0050CCA0 /* QRCodeView.m in Sources */,
 				18E0F3701DF9143F005F1B8E /* CalendarManager.m in Sources */,
