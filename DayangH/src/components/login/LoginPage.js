@@ -20,7 +20,7 @@ class LoginPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            userNameText: 'g1234',
+            userNameText: 'rd002',
             passWordText: '123456',
             modalVisible: false,
             imgCode: 'default',
@@ -75,8 +75,8 @@ class LoginPage extends Component {
     }
     handleClick = () => {
         var requestUrl = `${baseUrl}sessions`
-        var passMd5 = md5.hex_md5(String(this.state.passWordText));
-        var body = {"name": this.state.userNameText,"password":passMd5};
+        //var passMd5 = md5.hex_md5(String(this.state.passWordText));
+        var body = {"name": this.state.userNameText,"password":this.state.passWordText};
         //alert(JSON.stringify(body))
         fetch(requestUrl, {
             method: "POST",
